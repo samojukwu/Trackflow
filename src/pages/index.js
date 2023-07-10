@@ -9,6 +9,13 @@ export default function Home() {
   const [grossRevenue, setGrossRevenue] = useState(false)
   const [grossProfit, setGrossProfit] = useState(false)
 
+  useEffect(() => {
+    templateData && console.log(templateData)
+    grossRevenue && console.log(`grossRevenue: ${grossRevenue}`)
+    grossProfit && console.log(`grossProfit: ${grossProfit}`)
+  }, [templateData, grossRevenue, grossProfit])
+  
+
   return (
     <main>
       <SalesList
