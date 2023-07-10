@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import SalesList from "../components/SalesList";
+import { useState } from "react";
+import SalesData from "../components/SalesData";
 import styles from "../../styles/Home.module.css"
 import Image from "next/image";
 import Link from 'next/link';
@@ -9,16 +9,9 @@ export default function Home() {
   const [grossRevenue, setGrossRevenue] = useState(false)
   const [grossProfit, setGrossProfit] = useState(false)
 
-  useEffect(() => {
-    templateData && console.log(templateData)
-    grossRevenue && console.log(`grossRevenue: ${grossRevenue}`)
-    grossProfit && console.log(`grossProfit: ${grossProfit}`)
-  }, [templateData, grossRevenue, grossProfit])
-  
-
   return (
     <main>
-      <SalesList
+      <SalesData
         grossProfit={(param) => setGrossProfit(param)}
         grossRevenue={(param) => setGrossRevenue(param)}
         templateData={(param) => setTemplateData(param)}
@@ -48,14 +41,14 @@ export default function Home() {
           <div className={styles.salesHeader}>
             <div className={styles.divider}></div>
             <div className={styles.salesHeaderBlock}>
-              <p className={styles.lightText}>Gross revenue</p>
+              <p className={styles.lightText}>Total revenue</p>
               <div className={styles.usdBlock}>
                 <h1>{grossRevenue ? grossRevenue : 0}</h1>
                 <p className={styles.usd}>USD</p>
               </div>
             </div>
             <div className={styles.salesHeaderBlock}>
-              <p className={styles.lightText}>Gross profit</p>
+              <p className={styles.lightText}>Total profit</p>
               <div className={styles.usdBlock}>
                 <h1>{grossProfit ? grossProfit : 0}</h1>
                 <p className={styles.usd}>USD</p>
@@ -71,7 +64,7 @@ export default function Home() {
                 <p className={styles.lightText}>Distinct sales</p>
               </div>
               <div className={styles.rightAlign}>
-                <p className={styles.lightText}>Total sales</p>
+                <p className={styles.lightText}>Gross revenue/profit</p>
               </div>
             </div>
 
@@ -87,7 +80,7 @@ export default function Home() {
                         <p>{item.sales}</p>
                       </div>
                       <div className={styles.rightAlign}>
-                        <p>${item.price}</p>
+                        <p>${item.price} - ${(item.price * 0.8).toFixed(2)}</p>
                       </div>
                     </div>
                   </div>

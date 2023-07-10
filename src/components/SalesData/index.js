@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import FetchedEmails from '../FetchEmails';
 import Image from 'next/image';
 
-export default function SalesList({ grossRevenue, grossProfit, templateData }) {
+export default function SalesData({ grossRevenue, grossProfit, templateData }) {
   const [emails, setEmails] = useState({});
   const [loading, setLoading] = useState(true);
   const [salesData, setSalesData] = useState([]);
@@ -75,8 +75,7 @@ export default function SalesList({ grossRevenue, grossProfit, templateData }) {
     }
 
     grossRevenue(totalRevenue);
-    grossProfit(totalRevenue * 0.8)
-    formattedData && console.log(formattedData)
+    grossProfit((totalRevenue * 0.8).toFixed(2))
   }, [formattedData]);
 
   return (
