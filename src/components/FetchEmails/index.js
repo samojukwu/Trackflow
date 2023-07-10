@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-const CLIENT_ID = process.env.CLIENT_ID;
+const CLIENT_ID = process.env.NEXT_PUBLIC_CLIENT_ID;
 const SENDER_EMAIL = 'no-reply@webflow.com';
 
 const FetchedEmails = ({ fetchedEmails, isLoading }) => {
