@@ -76,6 +76,7 @@ export default function SalesList({ grossRevenue, grossProfit, templateData }) {
 
     grossRevenue(totalRevenue);
     grossProfit(totalRevenue * 0.8)
+    formattedData && console.log(formattedData)
   }, [formattedData]);
 
   return (
